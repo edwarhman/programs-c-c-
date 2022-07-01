@@ -1,0 +1,37 @@
+Crear un programa que genere un laberinto aleartorio y que indique si puede ser recorrido (entrar por alguna 
+posicion y salir por otra) o no. Tambien debe ser dibujada la ruta utilizada por el programa para realizar el 
+recorrido.
+
+Pasos para generar un laberinto aleartorio:
+1. Crear una matriz que contenga al laberinto de dimensiones 12x12.
+2. Rellenar el borde de la matriz con '#' (paredes) y el interior de la matriz con '-' (caminos).
+3. Generar paredes '#' en el interior de la matriz.
+4. generar entradas (dos espacios libres en posiciones aleartorias en el borde de la matriz).
+
+rellenarInterior
+    para cada fila de la matriz (menos la primera y la última)
+        para cada elemento de la fila (menos el primero y el último)
+             matriz[fila][elemento] <- '-'
+
+rellenarBorde
+    para cada elemento en una fila
+        matriz[1][elemento] <- '#'
+        matriz[TAM_MATRIZ - 2][elemento] <- '#' 
+        matriz[elemento][1] <- '#'
+        matriz[elemento][TAM_MATRIZ - 2] <- '#' 
+
+generarParedes
+    definir un número aleartorio (cantidadParedes) que contendrá la cantidad de paredes que se generarán (de 40 a 50)
+    int posAleartoria <- numero aleartorio entre los subindices de la matriz
+    cantidadParedes <- entero aleartorio entre 40 y 50
+    int contador <- 0
+    mientras (contador <= cantidadParedes)
+        si matriz[posAleartoria][posAleartoria] = '-'
+            matriz[posAleartoria][posAleartoria] <- '#'
+            incrementar contador
+
+generarEntradas
+    int posAleartoria <- numero aleartorio entre los subindices de la matriz
+    matriz[posAleartoria][0] <- '-'
+    matriz[posAleartoria][TAM_MATRIZ - 1] <- '-'
+

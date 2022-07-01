@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "Source"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp",
+			"iomanip": "cpp",
+			"stdexcept": "cpp",
+			"istream": "cpp",
+			"ostream": "cpp"
+		}
+	}
+}

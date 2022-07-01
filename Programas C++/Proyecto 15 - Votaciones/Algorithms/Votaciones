@@ -1,0 +1,96 @@
+class topic
+
+Topic(cadena : string)
+    topic <- cadena
+    answers <- {0}
+    media <- 0
+
+setTopic(candena : string) : void
+    topic <- cadena
+
+getTopic() : string
+    devuelve topic
+
+setAnswer(in : unsigned) : void
+    si in <= 10 
+        incrementar elemento in de answers
+
+getAnswer(indice : unsigned) : unsigned
+    devuelve elemento indice de answers
+
+setMedia(total : unsigned) : void
+    para cada elemento i en answers
+        media <- media + i * answers[i]
+    media = media / total;
+
+getMedia() : double
+    devuelve media
+
+class Votaciones
+
+Votaciones( newTopics : array de 5 elementos string)
+    total <- 0
+    mayor <- null
+    menor <- null
+
+setQuestions( newTopics : array de 5 elementos string ) : void
+    para cada elemento i del arreglo question
+        question[i].setTopic(newTopics[i])
+
+askQuestions() : void
+    setTotal(entrada)
+    definir contador i en 0
+    mientras i < total
+        definir contador j en 1
+        mientras j <= tamaño array question
+            mostrar question[j].topic
+             question[j].setAnswer( entrada ) 
+
+showElections() : void
+    showTable()
+    salto de línea
+    showMayor()
+    showMinor()
+
+setTotal(newTotal : unsigned) void
+    si newTotal > 0
+        total <- newTotal
+
+getTotal() : unsigned
+    devolver total
+
+setMedias() : void
+    para cada elemento i mientras i < question.size
+        question[i].setMedia[total]
+
+setMayor() : void
+    para elemento i = 1 mientras i <= question.size 
+        si question[i].getMedia > mayor.getMedia || i == 1
+            mayor <- question[i]
+            incrementar i en 1
+
+setMinor() : void
+    para elemento i = 1 mientras i < 0 
+        si question[i].getMedia < minor.getMedia || i == 1
+            minor <- question[i]
+            incrementar i en 1
+
+showTable() : void
+    mostrar "Temas"
+    definir i <- 1
+    mientras i <= 10
+        mostrar i 
+    definir j <- 1
+    mientras j <= question.size
+        mostrar question[j].getTopic()
+        definir i <- 1
+        mientras i <= answers.size
+            mostrar question[j].answers[i].getAnswer()
+
+showMayor() : void
+    mostrar "El asunto que obtuvo la mayor puntuacion es " + mayor.getTopic()"
+            "con " + mayor.getMedia() + " puntos."
+
+showMinor() : void
+    mostrar "El asunto que obtuvo la minor puntuacion es " + minor.getTopic()"
+            "con " + minor.getMedia() + " puntos."

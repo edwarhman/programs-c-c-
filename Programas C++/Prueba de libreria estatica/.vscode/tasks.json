@@ -1,0 +1,65 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "echo",
+            "type": "shell",
+            "command": "echo Hello"
+        },
+        {
+            "label": "C++ build project",
+            "type": "process",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-ggdb",
+                "./src/*.cpp",
+                "-I./include",
+                "-static-libgcc",
+                "./libraries/*.a",
+                "-o",
+                "./bin/ejecutable.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "C++ build active-file as a object-file",
+            "type": "process",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-c",
+                "${fileDirname}",
+                "-o",
+                "./obj/${fileBasenameNoExtension}.o",
+                "-I./include"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "C++ build active-file as a library",
+            "type": "process",
+            "command": "ar",
+            "args": [
+                "r",
+                "./libraries/${fileBasenameNoExtension}.a",
+                "./obj/${fileBasenameNoExtension}.o"
+            ],
+            "group": "build"
+        }
+    ]
+}

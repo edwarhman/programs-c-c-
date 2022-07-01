@@ -1,0 +1,37 @@
+# Project: Proyecto 9 - Juego Craps
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Sources/Craps.o Sources/Dados.o Sources/main.o Sources/Apuestas.o
+LINKOBJ  = Sources/Craps.o Sources/Dados.o Sources/main.o Sources/Apuestas.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = "Proyecto 9 - Juego Craps.exe"
+CXXFLAGS = $(CXXINCS) -std=c++11 -std=c++11
+CFLAGS   = $(INCS) -std=c++11 -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Sources/Craps.o: Sources/Craps.cpp
+	$(CPP) -c Sources/Craps.cpp -o Sources/Craps.o $(CXXFLAGS)
+
+Sources/Dados.o: Sources/Dados.cpp
+	$(CPP) -c Sources/Dados.cpp -o Sources/Dados.o $(CXXFLAGS)
+
+Sources/main.o: Sources/main.cpp
+	$(CPP) -c Sources/main.cpp -o Sources/main.o $(CXXFLAGS)
+
+Sources/Apuestas.o: Sources/Apuestas.cpp
+	$(CPP) -c Sources/Apuestas.cpp -o Sources/Apuestas.o $(CXXFLAGS)

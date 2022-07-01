@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"array": "cpp",
+			"locale": "cpp",
+			"iostream": "cpp",
+			"vector": "cpp"
+		}
+	}
+}

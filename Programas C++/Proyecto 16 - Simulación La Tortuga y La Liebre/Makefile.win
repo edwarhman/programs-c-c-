@@ -1,0 +1,40 @@
+# Project: Proyecto 16
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = src/Competicion.o src/Competidor.o src/Liebre.o src/main.o src/Tortuga.o
+LINKOBJ  = src/Competicion.o src/Competidor.o src/Liebre.o src/main.o src/Tortuga.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = "Proyecto 16.exe"
+CXXFLAGS = $(CXXINCS) -std=c++11 -std=c++11 -I./include
+CFLAGS   = $(INCS) -std=c++11 -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+src/Competicion.o: src/Competicion.cpp
+	$(CPP) -c src/Competicion.cpp -o src/Competicion.o $(CXXFLAGS)
+
+src/Competidor.o: src/Competidor.cpp
+	$(CPP) -c src/Competidor.cpp -o src/Competidor.o $(CXXFLAGS)
+
+src/Liebre.o: src/Liebre.cpp
+	$(CPP) -c src/Liebre.cpp -o src/Liebre.o $(CXXFLAGS)
+
+src/main.o: src/main.cpp
+	$(CPP) -c src/main.cpp -o src/main.o $(CXXFLAGS)
+
+src/Tortuga.o: src/Tortuga.cpp
+	$(CPP) -c src/Tortuga.cpp -o src/Tortuga.o $(CXXFLAGS)
